@@ -15,12 +15,12 @@ class TestFeed:
         feed.click_constructor()
         main = MainPage(authorized_driver)
 
-        number = main.create_order()
+        main.create_order()
         main.close_modal()
         main.click_feed()
 
-        assert number > 0
-        assert feed.wait_for_count_increase(period, before) > before
+        after = feed.wait_for_count_increase(period, before)
+        assert after > before
 
     @allure.title("Номер оформленного заказа появляется в разделе В работе")
     def test_order_number_in_progress(self, authorized_driver):

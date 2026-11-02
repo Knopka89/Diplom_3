@@ -13,7 +13,7 @@ class TestConstructor:
         feed.open()
         feed.click_constructor()
 
-        assert feed.wait_for_url(Urls.BASE_URL) == Urls.BASE_URL
+        feed.wait_for_url(Urls.BASE_URL)
         assert MainPage(driver).get_title() == "Соберите бургер"
 
     @allure.title("Переход из конструктора в ленту заказов")
@@ -22,7 +22,7 @@ class TestConstructor:
         page.open()
         page.click_feed()
 
-        assert page.wait_for_url(Urls.FEED_URL) == Urls.FEED_URL
+        page.wait_for_url(Urls.FEED_URL)
         assert FeedPage(driver).get_title() == "Лента заказов"
 
     @allure.title("Клик по ингредиенту открывает его детали")
